@@ -7,28 +7,23 @@ public class Reverse {
         Node<String> node1 = new Node<>("2");
         Node<String> node2 = new Node<>("3");
         Node<String> node3 = new Node<>("4");
+        Node<String> node4 = new Node<>("5");
+        Node<String> node5 = new Node<>("6");
+        Node<String> node6 = new Node<>("7");
+        Node<String> node7 = new Node<>("8");
 
         node.next = node1;
         node1.next = node2;
         node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+        node5.next = node6;
+        node6.next = node7;
 
-        Node nodeList = node;
-        while (nodeList != null) {
-            System.out.println(nodeList.item);
-            nodeList = nodeList.next;
-        }
+        node = reverseRec(node);
 
-        nodeList = reverseIter(node);
-        while (nodeList != null) {
-            System.out.println(nodeList.item);
-            nodeList = nodeList.next;
-        }
+        node = reverseIter(node);
 
-        nodeList = reverseRec(node3);
-        while (nodeList != null) {
-            System.out.println(nodeList.item);
-            nodeList = nodeList.next;
-        }
     }
 
 
@@ -61,7 +56,10 @@ public class Reverse {
     }
 
     private static Node reverseRec(Node head){
-        if (head == null || head.next == null) return head;
+        System.out.println(" h init " + head.item);
+        if (head == null || head.next == null){
+            return head;
+        }
         Node p = reverseRec(head.next);
         head.next.next = head;
         head.next = null;

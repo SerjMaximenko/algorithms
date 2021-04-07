@@ -51,3 +51,58 @@ https://leetcode.com/problems/intersection-of-two-linked-lists/solution/
             }
             return null;
         }
+        
+# Find loop
+
+https://leetcode.com/problems/linked-list-cycle/
+   
+---
+ 
+### Итеративное
+    private static boolean checkLoop(Node head){
+        if (head == null) return false;
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast!=null||fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (fast == slow) return true;
+        }
+        return false;
+    }
+        
+        
+# Find start node of loop
+        
+https://leetcode.com/problems/linked-list-cycle-ii/ 
+        
+---
+
+### Итеративное        
+    private static Node getStartLoop(Node head){
+        if (head == null) return null;
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast!=null||fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast){
+                slow = head;
+                while (slow!=fast){
+                    slow = slow.next;
+                    fast = fast.next;
+
+                }
+                return slow;
+            }
+
+        }
+        return null;
+    }
+    

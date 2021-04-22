@@ -1,0 +1,36 @@
+package ru.maximen;
+
+public class Test {
+
+    public static void main(String[] args) {
+
+    }
+
+    private class Person{
+
+        private int id;
+
+        private String name;
+
+        public Person(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+}
